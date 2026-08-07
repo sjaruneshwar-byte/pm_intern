@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PM Internship Portal - Government of India</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f5f5;
+        min-height: 100vh;
+      }
+
+      /* Government Header */
+      .gov-header {
+        background: #000;
+        color: white;
+        padding: 8px 0;
+        font-size: 14px;
+      }
+
+      .gov-header-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .gov-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .india-flag {
+        width: 24px;
+        height: 16px;
+        background: linear-gradient(
+          to bottom,
+          #ff9933 33%,
+          white 33% 66%,
+          #138808 66%
+        );
+        border: 1px solid #ccc;
+      }
+
+      .gov-controls {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      /* Main Header */
+      .main-header {
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+      }
+
+      .main-header-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .gov-emblem {
+        width: 60px;
+        height: 60px;
+      }
+
+      .portal-info h1 {
+        color: #1e3a8a;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      .portal-info p {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .header-buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-orange,
+      .btn-login {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .btn-orange {
+        background: #ff6b35;
+        color: white;
+      }
+
+      .btn-login {
+        background: #f59e0b;
+        color: white;
+      }
+
+      /* Navigation */
+      .navigation {
+        background: #1e3a8a;
+        color: white;
+      }
+
+      .nav-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        padding: 0 20px;
+      }
+
+      .nav-item {
+        padding: 15px 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.3s;
+      }
+
+      .nav-item:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-item.active {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Hero Section */
+      .hero-section {
+        background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+        color: white;
+        padding: 60px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .hero-text h2 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        line-height: 1.1;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .complete-process-btn {
+        background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
+        color: white;
+        padding: 18px 40px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+        min-width: 280px;
+      }
+
+      .complete-process-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+      }
+
+      .hero-image {
+        text-align: center;
+      }
+
+      /* Information Section */
+      .info-container {
+        max-width: 1400px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .info-card {
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .info-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .info-header h3 {
+        color: #1e3a8a;
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .info-header p {
+        color: #666;
+        font-size: 1.1rem;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+
+      .info-item {
+        padding: 25px;
+        border-radius: 12px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .info-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        background: white;
+      }
+
+      .info-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      .info-item h4 {
+        color: #1e3a8a;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+      }
+
+      .info-item p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .eligibility-section,
+      .process-steps {
+        margin-top: 40px;
+        padding: 30px;
+        background: #f0f9ff;
+        border-radius: 12px;
+        border-left: 5px solid #6366f1;
+      }
+
+      .eligibility-section h4,
+      .process-steps h4 {
+        color: #1e3a8a;
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+      }
+
+      .eligibility-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .eligibility-section li {
+        padding: 8px 0;
+        color: #374151;
+        position: relative;
+        padding-left: 25px;
+      }
+
+      .eligibility-section li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #10b981;
+        font-weight: bold;
+      }
+
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .step {
+        text-align: center;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .step-number {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #6366f1, #4f46e5);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0 auto 15px;
+      }
+
+      .step h5 {
+        color: #1e3a8a;
+        margin-bottom: 10px;
+      }
+
+      .step p {
+        color: #666;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      /* Application Form Section */
+      .form-container {
+        display: none;
+        max-width: 1400px;
+        margin: 40px auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .form-card {
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .form-header h3 {
+        color: #1e3a8a;
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .form-header p {
+        color: #666;
+        font-size: 1.1rem;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #333;
+        font-size: 1rem;
+      }
+
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: #6366f1;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+      }
+
+      .skills-section {
+        grid-column: 1 / -1;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .skill-item {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        background: #f8fafc;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+      }
+
+      .skill-item:hover {
+        background: #e0f2fe;
+        border-color: #0284c7;
+      }
+
+      .skill-item input[type="checkbox"] {
+        width: auto;
+        margin-right: 10px;
+        transform: scale(1.2);
+      }
+
+      .skill-item label {
+        margin: 0;
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .submit-btn {
+        background: linear-gradient(135deg, #6366f1, #4f46e5);
+        color: white;
+        padding: 18px 40px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+        margin: 30px auto;
+        min-width: 250px;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+      }
+
+      /* Results Section */
+      .results-section {
+        display: none;
+        max-width: 1400px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .results-header {
+        text-align: center;
+        margin-bottom: 40px;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .results-header h2 {
+        color: #1e3a8a;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      .companies-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+      }
+
+      .company-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border-left: 5px solid #6366f1;
+        position: relative;
+      }
+
+      .company-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .company-header {
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .wishlist-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: transparent;
+        border: 2px solid #e2e8f0;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        font-size: 18px;
+        color: #666;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .wishlist-btn:hover {
+        border-color: #ff6b35;
+        color: #ff6b35;
+        transform: scale(1.1);
+      }
+
+      .wishlist-btn.added {
+        background: #ff6b35;
+        border-color: #ff6b35;
+        color: white;
+      }
+
+      .match-score {
+        display: inline-block;
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .skill-gap {
+        margin-top: 20px;
+        padding: 15px;
+        background: #fef3cd;
+        border-left: 4px solid #f59e0b;
+        border-radius: 8px;
+      }
+
+      .skill-gap h4 {
+        color: #92400e;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      .skill-gap-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .skill-gap-tag {
+        background: #fed7aa;
+        color: #ea580c;
+        padding: 4px 10px;
+        border-radius: 15px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .company-name {
+        font-size: 1.5em;
+        font-weight: 700;
+        color: #1e3a8a;
+        margin-bottom: 5px;
+      }
+
+      .company-location {
+        color: #666;
+        font-size: 1rem;
+      }
+
+      .company-details {
+        margin: 20px 0;
+      }
+
+      .detail-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        padding: 8px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .detail-label {
+        font-weight: 600;
+        color: #555;
+      }
+
+      .detail-value {
+        color: #333;
+      }
+
+      .skills-match {
+        margin-top: 20px;
+      }
+
+      .skills-match h4 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-tag {
+        background: #e0f2fe;
+        color: #0284c7;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.85em;
+        font-weight: 500;
+      }
+
+      .apply-btn {
+        background: linear-gradient(135deg, #ff6b35, #e55a2b);
+        color: white;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+        width: 100%;
+        font-size: 1rem;
+      }
+
+      .apply-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+      }
+
+      .back-btn {
+        background: #6b7280;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 40px auto;
+        display: block;
+      }
+
+      .back-btn:hover {
+        background: #4b5563;
+        transform: translateY(-2px);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .companies-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-text h2 {
+          font-size: 2.5rem;
+        }
+
+        .main-header-content {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .nav-content {
+          flex-wrap: wrap;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Government Header -->
+    <div class="gov-header">
+      <div class="gov-header-content">
+        <div class="gov-title">
+          <div class="india-flag"></div>
+          <span>भारत सरकार / Government Of India</span>
+        </div>
+        <div class="gov-controls">
+          <span>🔍</span>
+          <span>/</span>
+          <span>📖 English</span>
+          <span>/</span>
+          <span>Screen Reader 🔊</span>
+          <span>A- A A+</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Header -->
+    <div class="main-header">
+      <div class="main-header-content">
+        <div class="logo-section">
+          <svg
+            class="gov-emblem"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="50" cy="30" r="25" fill="#1e3a8a" />
+            <circle
+              cx="50"
+              cy="30"
+              r="20"
+              fill="none"
+              stroke="gold"
+              stroke-width="2"
+            />
+            <text
+              x="50"
+              y="35"
+              text-anchor="middle"
+              fill="gold"
+              font-size="8"
+              font-weight="bold"
+            >
+              भारत
+            </text>
+            <rect x="35" y="55" width="30" height="35" fill="#1e3a8a" />
+            <text x="50" y="70" text-anchor="middle" fill="white" font-size="6">
+              MINISTRY OF
+            </text>
+            <text x="50" y="78" text-anchor="middle" fill="white" font-size="6">
+              CORPORATE
+            </text>
+            <text x="50" y="86" text-anchor="middle" fill="white" font-size="6">
+              AFFAIRS
+            </text>
+          </svg>
+          <div class="portal-info">
+            <h1>PM Internship Portal</h1>
+            <p>Ministry of Corporate Affairs, Government of India</p>
+          </div>
+        </div>
+        <div class="header-buttons">
+          <button class="btn-orange">Youth Registration</button>
+          <button class="btn-login">LOGIN</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <div class="nav-content">
+        <div class="nav-item active"><span>🏠</span> HOME</div>
+        <div class="nav-item"><span>📋</span> GUIDELINES</div>
+        <div class="nav-item"><span>🖼️</span> GALLERY</div>
+        <div class="nav-item"><span>✅</span> ELIGIBILITY</div>
+        <div class="nav-item"><span>📱</span> MOBILE APP</div>
+        <div class="nav-item"><span>💬</span> SUPPORT</div>
+        <div class="nav-item"><span>📚</span> COMPENDIUM</div>
+      </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard-section">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h2>Find Your Perfect<br />PM Internship</h2>
+            <div class="hero-description">
+              You're about to discover amazing Product Management internship
+              opportunities! Complete your profile and get matched with top
+              companies across India.
+            </div>
+            <button
+              class="complete-process-btn"
+              onclick="redirectToApplication()"
+            >
+              Complete Application Process
+            </button>
+          </div>
+          <div class="hero-image">
+            <svg
+              width="280"
+              height="350"
+              viewBox="0 0 280 350"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="280" height="350" rx="10" fill="url(#grad1)" />
+              <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop
+                    offset="0%"
+                    style="stop-color: #4f46e5; stop-opacity: 1"
+                  />
+                  <stop
+                    offset="100%"
+                    style="stop-color: #06b6d4; stop-opacity: 1"
+                  />
+                </linearGradient>
+              </defs>
+              <ellipse
+                cx="140"
+                cy="280"
+                rx="60"
+                ry="20"
+                fill="rgba(255,255,255,0.1)"
+              />
+              <rect
+                x="120"
+                y="180"
+                width="40"
+                height="100"
+                rx="20"
+                fill="rgba(255,255,255,0.8)"
+              />
+              <circle cx="140" cy="140" r="30" fill="rgba(255,255,255,0.8)" />
+              <rect
+                x="80"
+                y="80"
+                width="120"
+                height="80"
+                rx="5"
+                fill="rgba(255,255,255,0.9)"
+              />
+              <line
+                x1="90"
+                y1="100"
+                x2="170"
+                y2="100"
+                stroke="#4f46e5"
+                stroke-width="2"
+              />
+              <line
+                x1="90"
+                y1="120"
+                x2="150"
+                y2="120"
+                stroke="#4f46e5"
+                stroke-width="2"
+              />
+              <line
+                x1="90"
+                y1="140"
+                x2="180"
+                y2="140"
+                stroke="#4f46e5"
+                stroke-width="2"
+              />
+              <circle cx="200" cy="100" r="15" fill="#10b981" />
+              <path
+                d="M195 100 L198 103 L205 96"
+                stroke="white"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Information Section -->
+      <div class="info-container">
+        <div class="info-card">
+          <div class="info-header">
+            <h3>Welcome to PM Internship Portal</h3>
+            <p>Your gateway to Product Management careers in India</p>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-item">
+              <div class="info-icon">📊</div>
+              <h4>Data-Driven Opportunities</h4>
+              <p>
+                Smart matching algorithm connects you with companies based on
+                your skills and preferences.
+              </p>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">🏢</div>
+              <h4>Government Verified Companies</h4>
+              <p>
+                All partner companies are verified by the Ministry of Corporate
+                Affairs for authenticity.
+              </p>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">🌏</div>
+              <h4>Pan-India Opportunities</h4>
+              <p>
+                Internships available across 40+ cities in India, including
+                remote work options.
+              </p>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">🎓</div>
+              <h4>Skill Development Focus</h4>
+              <p>
+                Comprehensive skill assessment covering 30+ product management
+                competencies.
+              </p>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">⚡</div>
+              <h4>Quick Application Process</h4>
+              <p>
+                Streamlined application system with real-time status updates and
+                notifications.
+              </p>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">🔒</div>
+              <h4>Secure & Reliable</h4>
+              <p>
+                Government-grade security ensuring your personal information
+                remains protected.
+              </p>
+            </div>
+          </div>
+
+          <div class="eligibility-section">
+            <h4>Eligibility Criteria</h4>
+            <ul>
+              <li>Age: 21-24 years (as per Government guidelines)</li>
+              <li>Education: Must have completed Class 10, Class 12, ITI certificate, polytechnic diploma, or bachelor's degree (BA, B.Sc, B.Com, BBA, BCA, B.Pharma)</li>
+              <li>Annual Family Income: Must be ₹8 lakhs or below</li>
+              <li>Skills: Interest in Product Management and related fields</li>
+              <li>Location: Any city in India or willing to relocate</li>
+              <li>Documents: Valid ID proof and educational certificates</li>
+            </ul>
+          </div>
+
+          <div class="process-steps">
+            <h4>Application Process</h4>
+            <div class="steps-grid">
+              <div class="step">
+                <div class="step-number">1</div>
+                <h5>Complete Profile</h5>
+                <p>Fill in your personal details, skills, and preferences</p>
+              </div>
+              <div class="step">
+                <div class="step-number">2</div>
+                <h5>Get Matched</h5>
+                <p>Our algorithm finds the best companies for your profile</p>
+              </div>
+              <div class="step">
+                <div class="step-number">3</div>
+                <h5>Apply & Track</h5>
+                <p>Submit applications and track status in real-time</p>
+              </div>
+              <div class="step">
+                <div class="step-number">4</div>
+                <h5>Interview & Join</h5>
+                <p>Complete interviews and start your internship journey</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Application Form Section -->
+    <div class="form-container" id="form-container">
+      <div class="form-card">
+        <div class="form-header">
+          <h3>Start Your PM Journey</h3>
+          <p>
+            Fill in your details to get personalized internship recommendations
+          </p>
+        </div>
+
+        <form id="internship-form">
+          <div class="form-grid">
+            <div class="form-group">
